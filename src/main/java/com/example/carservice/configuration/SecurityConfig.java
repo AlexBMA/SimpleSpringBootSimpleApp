@@ -32,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
+    @Override
     public void configure(HttpSecurity http) throws Exception{
         http.cors().and().authorizeRequests().
                 antMatchers(HttpMethod.POST,"/login").
