@@ -35,7 +35,8 @@ public class LoginFilter extends AbstractAuthenticationProcessingFilter {
         ));
     }
 
-    protected void succesfullAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain, Authentication auth){
+    @Override
+    protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain, Authentication auth){
         AuthenticationService.addToken(res, auth.getName());
     }
 

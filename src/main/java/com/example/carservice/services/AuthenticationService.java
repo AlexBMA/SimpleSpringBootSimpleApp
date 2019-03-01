@@ -14,8 +14,16 @@ import static java.util.Collections.emptyList;
 public class AuthenticationService {
 
     static final long EXPIRATIONTIME = 864_000_00; // 1 day in milliseconds
-    static final String SIGNINGKEY = "SecretKey";
+    static final String SIGNINGKEY = "SecretKeyForTheTestingOfTheAppSecretKeyForTheTestingOfTheAppSecretKeyForTheTestingOfTheApp";
     static final String PREFIX = "Bearer";
+
+
+    static public String createToken(String username){
+        String JwtToken = Jwts.builder().setSubject(username).
+                setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME)).
+                signWith(SignatureAlgorithm.HS512, SIGNINGKEY).compact();
+        return JwtToken;
+    }
 
     // Add token to Authorization header
     static public void addToken(HttpServletResponse res, String username) {
@@ -23,6 +31,7 @@ public class AuthenticationService {
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))
                 .signWith(SignatureAlgorithm.HS512, SIGNINGKEY)
                 .compact();
+
         res.addHeader("Authorization", PREFIX + " " + JwtToken);
         res.addHeader("Access-Control-Expose-Headers", "Authorization");
     }
@@ -31,6 +40,7 @@ public class AuthenticationService {
     static public Authentication getAuthentication(HttpServletRequest request) {
         String token = request.getHeader("Authorization");
         if (token != null) {
+            System.out.println(token);
             String user = Jwts.parser()
                     .setSigningKey(SIGNINGKEY)
                     .parseClaimsJws(token.replace(PREFIX, ""))

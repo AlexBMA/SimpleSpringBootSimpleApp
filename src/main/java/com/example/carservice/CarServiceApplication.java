@@ -6,6 +6,7 @@ import com.example.carservice.domain.User;
 import com.example.carservice.repository.CarRepository;
 import com.example.carservice.repository.OwnerRepository;
 import com.example.carservice.repository.UserRepository;
+import com.example.carservice.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -53,6 +54,14 @@ public class CarServiceApplication {
             urepository.save(new User("admin",
                     "$2a$04$KNLUwOWHVQZVpXyMBNc7JOzbLiBjb9Tk9bP7KNcPI12ICuvzXQQKG",
                     "ADMIN"));
+
+            System.out.println("\n ");
+            System.out.println(AuthenticationService.createToken("admin"));
+
+            //eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJKb2UifD.ipevRNuRP6HflG8cFKnmUPtypruRC4fc1DWtoLL62SY
+            //AuthenticationService.
+
+            //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiIsImp0aSI6IjEwZTdjNzM5LWM0ODgtNGZkMS1iM2FhLTdhNGY4YzBkNzQwOSIsImlhdCI6MTU1MTQ3NzUxNCwiZXhwIjoxNTUxNDgxMTE0fQ.HPCsi76sQpywyVUOV6nu4rusVXWgIMD9sH21Dw7DgWo
         };
     }
 
