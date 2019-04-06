@@ -3,6 +3,7 @@ package com.example.carservice;
 
 import com.example.carservice.domain.Car;
 import com.example.carservice.repository.CarRepository;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class CarRepositoryTest {
     @Autowired
     private CarRepository repository;
 
+    @Ignore
     @Test
     public void saveCar() {
         Car car = new Car("Tesla", "Model X", "White", "ABC-1234", 2017, 86000);
@@ -29,6 +31,7 @@ public class CarRepositoryTest {
         assertThat(car.getId()).isNotNull();
     }
 
+    @Ignore
     @Test
     public void deleteCars() {
         entityManager.persistAndFlush(new Car("Tesla", "Model X", "White", "ABC-1234", 2017, 86000));

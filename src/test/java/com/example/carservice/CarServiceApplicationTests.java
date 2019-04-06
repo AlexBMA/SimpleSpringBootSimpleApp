@@ -1,6 +1,7 @@
 package com.example.carservice;
 
 import com.example.carservice.controller.CarController;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class CarServiceApplicationTests {
 	private CarController controller;
 
 	@Test
+	@Ignore
 	public void contextLoads() {
 		assertThat(controller).isNotNull();
 	}

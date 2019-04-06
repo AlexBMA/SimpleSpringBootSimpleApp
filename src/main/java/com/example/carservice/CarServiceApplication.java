@@ -1,11 +1,17 @@
 package com.example.carservice;
 
+import com.example.carservice.domain.Car;
+import com.example.carservice.domain.Owner;
+import com.example.carservice.domain.User;
 import com.example.carservice.repository.CarRepository;
 import com.example.carservice.repository.OwnerRepository;
 import com.example.carservice.repository.UserRepository;
+import com.example.carservice.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class CarServiceApplication {
@@ -25,7 +31,7 @@ public class CarServiceApplication {
         SpringApplication.run(CarServiceApplication.class, args);
     }
 
-    /*
+
     @Bean
     CommandLineRunner runner() {
         return args -> {
@@ -56,6 +62,5 @@ public class CarServiceApplication {
         };
     }
 
-     */
 
 }
