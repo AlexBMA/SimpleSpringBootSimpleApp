@@ -3,8 +3,9 @@ package com.example.carservice.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
+
 @Setter
+@Getter
 public class AccountCredentials {
 
     private String username;
